@@ -36,69 +36,69 @@ app_delete_user:
     methods: DELETE
 
 # JS
-async function getUser(id) {
-    let url = '/v1/api/users/'+id;
-    let response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + tokenBearer
+    async function getUser(id) {
+        let url = '/v1/api/users/'+id;
+        let response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + tokenBearer
+            }
+        });
+    
+        if (!response.ok) {
+            console.error('API request failed:', response.status);
+            alert('API request failed');
+            return;
         }
-    });
-
-    if (!response.ok) {
-        console.error('API request failed:', response.status);
-        alert('API request failed');
-        return;
+    
+        return await response.json();
     }
-
-    return await response.json();
-}
-
-async function createUser(data) {
-    let response = await fetch('/v1/api/users', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + tokenBearer
-        },
-        body: JSON.stringify(data)
-    });
-
-    if (!response.ok) {
-        console.error('API request failed:', response.status);
-        alert('API request failed');
-        return;
-    }
-
-    return await response.json();
-}
-
-async function updateUser(data) {
-    let response = await fetch('/v1/api/users', {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + tokenBearer
-        },
-        body: JSON.stringify(data)
-    });
-
-    if (!response.ok) {
-        console.error('API request failed:', response.status);
-        alert('API request failed');
-        return;
-    }
-
-    return await response.json();
-}
-
-async function deleteUser(id) {
-    let response = await fetch('/v1/api/users/'+id, {
-        method: 'DELETE',
-        headers: {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + tokenBearer
+    
+    async function createUser(data) {
+        let response = await fetch('/v1/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + tokenBearer
+            },
+            body: JSON.stringify(data)
+        });
+    
+        if (!response.ok) {
+            console.error('API request failed:', response.status);
+            alert('API request failed');
+            return;
         }
-    });
-}
+    
+        return await response.json();
+    }
+    
+    async function updateUser(data) {
+        let response = await fetch('/v1/api/users', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + tokenBearer
+            },
+            body: JSON.stringify(data)
+        });
+    
+        if (!response.ok) {
+            console.error('API request failed:', response.status);
+            alert('API request failed');
+            return;
+        }
+    
+        return await response.json();
+    }
+    
+    async function deleteUser(id) {
+        let response = await fetch('/v1/api/users/'+id, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + tokenBearer
+            }
+        });
+    }
