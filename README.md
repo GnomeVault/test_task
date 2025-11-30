@@ -1,39 +1,40 @@
 # test_task
 
 # DOCKER: https://github.com/GnomeVault/test_task/blob/main/docker.zip
-# DATA FOR TEST: php bin/console doctrine:fixtures:load
 # DATA BASE: https://github.com/GnomeVault/test_task/blob/main/testdb.sql
+# DATA FOR TEST:
+    php bin/console doctrine:fixtures:load
 
 # Constoller
-https://github.com/GnomeVault/test_task/blob/main/src/Controller/RestApiController.php
+    https://github.com/GnomeVault/test_task/blob/main/src/Controller/RestApiController.php
 
 # Entity
-https://github.com/GnomeVault/test_task/blob/main/src/Entity/User.php
+    https://github.com/GnomeVault/test_task/blob/main/src/Entity/User.php
 
 # routes.yaml
-GET /v1/api/users
-app_get_users:
-    path: /v1/api/users/{id}
-    controller: App\Controller\RestApiController::get
-    methods: GET
-
-POST /v1/api/users
-app_create_user:
-    path: /v1/api/users
-    controller: App\Controller\RestApiController::post
-    methods: POST
-
-PUT /v1/api/users
-app_update_user:
-    path: /v1/api/users
-    controller: App\Controller\RestApiController::put
-    methods: PUT
-
-DELETE /v1/api/users/{id}
-app_delete_user:
-    path: /v1/api/users/{id}
-    controller: App\Controller\RestApiController::delete
-    methods: DELETE
+    GET /v1/api/users
+    app_get_users:
+        path: /v1/api/users/{id}
+        controller: App\Controller\RestApiController::get
+        methods: GET
+    
+    POST /v1/api/users
+    app_create_user:
+        path: /v1/api/users
+        controller: App\Controller\RestApiController::post
+        methods: POST
+    
+    PUT /v1/api/users
+    app_update_user:
+        path: /v1/api/users
+        controller: App\Controller\RestApiController::put
+        methods: PUT
+    
+    DELETE /v1/api/users/{id}
+    app_delete_user:
+        path: /v1/api/users/{id}
+        controller: App\Controller\RestApiController::delete
+        methods: DELETE
 
 # JS
     async function getUser(id) {
