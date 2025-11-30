@@ -1,1 +1,112 @@
-# test_task
+# Test Task
+
+# DOCKER:
+    https://github.com/GnomeVault/test_task/blob/main/docker.zip
+# DATA BASE:
+    https://github.com/GnomeVault/test_task/blob/main/testdb.sql
+# DATA FOR TEST:
+    php bin/console doctrine:fixtures:load
+# Create JWT key
+    mkdir -p config/jwt
+    openssl genrsa -out config/jwt/private.pem 4096
+    openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
+    chmod 644 config/jwt/private.pem config/jwt/public.pem
+
+# Constoller
+    https://github.com/GnomeVault/test_task/blob/main/src/Controller/RestApiController.php
+
+# Entity
+    https://github.com/GnomeVault/test_task/blob/main/src/Entity/User.php
+
+# routes.yaml
+    GET /v1/api/users
+    app_get_users:
+        path: /v1/api/users/{id}
+        controller: App\Controller\RestApiController::get
+        methods: GET
+    
+    POST /v1/api/users
+    app_create_user:
+        path: /v1/api/users
+        controller: App\Controller\RestApiController::post
+        methods: POST
+    
+    PUT /v1/api/users
+    app_update_user:
+        path: /v1/api/users
+        controller: App\Controller\RestApiController::put
+        methods: PUT
+    
+    DELETE /v1/api/users/{id}
+    app_delete_user:
+        path: /v1/api/users/{id}
+        controller: App\Controller\RestApiController::delete
+        methods: DELETE
+
+# JS
+    async function getUser(id) {
+        let url = '/v1/api/users/'+id;
+        let response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + tokenBearer
+            }
+        });
+    
+        if (!response.ok) {
+            console.error('API request failed:', response.status);
+            alert('API request failed');
+            return;
+        }
+    
+        return await response.json();
+    }
+    
+    async function createUser(data) {
+        let response = await fetch('/v1/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + tokenBearer
+            },
+            body: JSON.stringify(data)
+        });
+    
+        if (!response.ok) {
+            console.error('API request failed:', response.status);
+            alert('API request failed');
+            return;
+        }
+    
+        return await response.json();
+    }
+    
+    async function updateUser(data) {
+        let response = await fetch('/v1/api/users', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + tokenBearer
+            },
+            body: JSON.stringify(data)
+        });
+    
+        if (!response.ok) {
+            console.error('API request failed:', response.status);
+            alert('API request failed');
+            return;
+        }
+    
+        return await response.json();
+    }
+    
+    async function deleteUser(id) {
+        let response = await fetch('/v1/api/users/'+id, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + tokenBearer
+            }
+        });
+    }
