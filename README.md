@@ -1,7 +1,9 @@
 # test_task
 
-# DOCKER: https://github.com/GnomeVault/test_task/blob/main/docker.zip
-# DATA BASE: https://github.com/GnomeVault/test_task/blob/main/testdb.sql
+# DOCKER:
+    https://github.com/GnomeVault/test_task/blob/main/docker.zip
+# DATA BASE:
+    https://github.com/GnomeVault/test_task/blob/main/testdb.sql
 # DATA FOR TEST:
     php bin/console doctrine:fixtures:load
 
