@@ -1,0 +1,45 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+app_get_all_users:
+    path: /v1/api/users
+    controller: App\Controller\RestApiController::getAll
+    methods: GET
+
+# GET /v1/api/users
+app_get_users:
+    path: /v1/api/users/{id}
+    controller: App\Controller\RestApiController::get
+    methods: GET
+
+# POST /v1/api/users
+app_create_user:
+    path: /v1/api/users
+    controller: App\Controller\RestApiController::post
+    methods: POST
+
+# PUT /v1/api/users
+app_update_user:
+    path: /v1/api/users
+    controller: App\Controller\RestApiController::put
+    methods: PUT
+
+# DELETE /v1/api/users/{id}
+app_delete_user:
+    path: /v1/api/users/{id}
+    controller: App\Controller\RestApiController::delete
+    methods: DELETE
+
+# main page
+app_index:
+    path: '/'
+    controller: App\Controller\DefaultController::index
+
+# main login
+app_login:
+    path: /api/login
+    controller: App\Controller\ApiLoginController::login
+    methods: POST
