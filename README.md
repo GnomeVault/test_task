@@ -6,6 +6,11 @@
     https://github.com/GnomeVault/test_task/blob/main/testdb.sql
 # DATA FOR TEST:
     php bin/console doctrine:fixtures:load
+# Create JWT key
+    mkdir -p config/jwt
+    openssl genrsa -out config/jwt/private.pem 4096
+    openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
+    chmod 644 config/jwt/private.pem config/jwt/public.pem
 
 # Constoller
     https://github.com/GnomeVault/test_task/blob/main/src/Controller/RestApiController.php
