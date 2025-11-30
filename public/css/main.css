@@ -1,0 +1,41 @@
+.login_form {
+    border: 1px solid #bbbbbb;
+    padding: 25px;
+}
+
+.login_form h2 {
+    padding: 0px;
+    margin: 0px 0 15px 0px;
+}
+
+.user_list {
+    padding: 20px;
+    border: 1px solid #bbbbbb;
+    margin: 20px 0 0 0px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+table td {
+    border-top: 1px solid #aaaaaa;
+    padding: 0px 20px;
+}
+
+.edit_form {
+    padding: 20px;
+    border: 1px solid #bbbbbb;
+    margin: 20px 0 0 0px;
+    width: 180px;
+}
+
+.edit_form input {
+    width: 100%;
+    margin: 5px 0px;
+}
+.edit_form button {
+    width: 100%;
+    margin: 5px 0px;
+}
